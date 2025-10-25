@@ -1,0 +1,60 @@
+<h1>Start a Ride</h1>
+<form>
+  <legend>Client Information:</legend><br>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Client Name</mat-label>
+    <input matInput [(ngModel)]="rideStart.client.name" name="clientName" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>NIF</mat-label>
+    <input matInput [(ngModel)]="rideStart.client.nif" name="clientNif" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Gender</mat-label>
+    <mat-select [(ngModel)]="rideStart.client.gender" name="clientGender">
+      <mat-option value="male">Male</mat-option>
+      <mat-option value="female">Female</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Number of People</mat-label>
+    <input matInput type="number" [(ngModel)]="rideStart.numberOfPeople" name="numPeople" min="1" max="6" />
+  </mat-form-field>
+
+  <div class="custom-time-wrapper">
+    <label for="startDate">Start Date</label><br>
+    <input type="date" id="startDate" [(ngModel)]="startDateStr" name="startDate" [min]="minStartDate"
+      [max]="maxStartDate" class="custom-time-input" />
+  </div>
+
+  <div class="custom-time-wrapper">
+    <label for="startTime">Start Time</label>
+    <input type="time" id="startTime" [(ngModel)]="startTimeStr" name="startTime" class="custom-time-input" />
+  </div>
+  <br>
+
+  <legend>Address:</legend><br>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Locality</mat-label>
+    <input matInput [(ngModel)]="translatedStartAddress.locality" name="locality" />
+  </mat-form-field>
+  
+  <mat-form-field appearance="outline">
+    <mat-label>Street</mat-label>
+    <input matInput [(ngModel)]="translatedStartAddress.street" name="street" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Door Number</mat-label>
+    <input matInput [(ngModel)]="translatedStartAddress.doorNumber" name="doorNumber" />
+  </mat-form-field>
+
+  <div class="button-wrapper">
+    <button mat-stroked-button type="button" (click)="startRide()">Start Ride</button>
+  </div>
+</form>

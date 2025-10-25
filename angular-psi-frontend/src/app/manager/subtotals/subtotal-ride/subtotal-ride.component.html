@@ -1,0 +1,61 @@
+<div class="main-content">
+  <div id="button-centralized">
+    <button mat-stroked-button (click)="goBack()">Minimize</button>
+  </div>
+    <h1>Taxis List:</h1>
+    <ul class="taxis-list">
+      <div *ngFor="let taxi of orderedTaxisByRidesDesc; let y=index">
+        <li>
+        <div>
+          <a [routerLink]="['/manager/taxi-detail', taxi.id]">Taxi Plate: {{taxi.name}}</a><br>
+          <strong>Number of Rides: {{taxi.totalRides}} </strong>
+          <span ></span>
+        </div>
+        <button (click)="getMoreInfoTaxi(y)">{{ openedIndexTaxi === y ? 'See Less' : 'See More' }}</button>
+      </li>
+      <div *ngIf="openedIndexTaxi === y">
+        <div *ngFor="let ride of orderedTaxiRidesByEndDesc">
+          <ul>
+            <li class="subtlist">
+            <div>
+              <strong>Client Name: {{ride.client.name}}</strong> <br>
+              <strong>End Address: {{ formatAddress(ride.endAddress) }}</strong><br>
+              <strong>Ride Start: {{ride.timePeriod.start | date:'dd/MM/yyyy HH:mm'}}</strong><br>
+              <strong>Ride End: {{ride.timePeriod.end | date:'dd/MM/yyyy HH:mm'}}</strong>
+            </div>
+            <button (click)="goToTripInfo(ride._id)">More Info</button>
+          </li>
+        </ul>
+        </div>
+      </div>
+      </div>
+    </ul>
+    <h1>Drivers List:</h1>
+    <ul class="taxis-list">
+      <div *ngFor="let driver of orderedDriversByRidesDesc; let i=index">
+        <li>
+        <div>
+          <a [routerLink]="['/manager/driver-detail', driver.id]">Name: {{driver.name}} </a><br>
+          <strong>Number of Rides: {{driver.totalRides}}</strong>
+          <span ></span>
+        </div>
+        <button id="seeMore" (click)="getMoreInfoDriver(i)">{{ openedIndexDriver === i ? 'See Less' : 'See More' }}</button>
+      </li>
+      <div *ngIf="openedIndexDriver === i">
+        <div *ngFor="let ride of orderedDriverRidesByEndDesc">
+          <ul>
+            <li class="subtlist">
+            <div>
+              <strong>Client Name: {{ride.client.name}}</strong> <br>
+              <strong>End Address: {{ formatAddress(ride.endAddress) }}</strong><br>
+              <strong>Ride Start: {{ride.timePeriod.start | date:'dd/MM/yyyy HH:mm'}}</strong><br>
+              <strong>Ride End: {{ride.timePeriod.end | date:'dd/MM/yyyy HH:mm'}}</strong>
+            </div>
+            <button (click)="goToTripInfo(ride._id)">More Info</button>
+          </li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </ul>
+</div>

@@ -1,0 +1,40 @@
+<div class="main-content">
+  <div *ngIf="taxi && driver && shiftStart.date && shiftStart.time && shiftEnd.date && shiftEnd.time">
+    <button mat-stroked-button type="button" (click)="goBack()">Go Back</button>
+
+    <form (ngSubmit)="onSubmitShiftRequest()">
+      <h1 font-size="large">Confirm Shift Request</h1>
+      <mat-list>
+        <mat-list-item>
+          <span matListItemTitle>Driver:</span>
+          <span matListItemLine>{{ driver.name }}</span>
+        </mat-list-item>
+        <mat-list-item>
+          <span matListItemTitle>Shift Start:</span>
+          <span matListItemLine>{{ shiftStart.date }} {{ shiftStart.time }}</span>
+        </mat-list-item>
+        <mat-list-item>
+          <span matListItemTitle>Shift End:</span>
+          <span matListItemLine>{{ shiftEnd.date }} {{ shiftEnd.time }}</span>
+        </mat-list-item>
+        <mat-list-item>
+          <span matListItemTitle>Taxi Plate:</span>
+          <span matListItemLine>{{ taxi.licensePlate }}</span>
+        </mat-list-item>
+        <mat-list-item>
+          <span matListItemTitle>Model:</span>
+          <span matListItemLine>{{ taxi.modelName }}</span>
+        </mat-list-item>
+        <mat-list-item>
+          <span matListItemTitle>Brand:</span>
+          <span matListItemLine>{{ taxi.brand }}</span>
+        </mat-list-item>
+        <mat-list-item>
+          <span matListItemTitle>Year:</span>
+          <span matListItemLine>{{ taxi.purchaseYear }}</span>
+        </mat-list-item>
+      </mat-list>
+      <button mat-raised-button color="primary" type="submit">Submit Shift Request</button>
+    </form>
+  </div>
+</div>

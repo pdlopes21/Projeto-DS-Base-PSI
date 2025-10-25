@@ -1,0 +1,38 @@
+legend{
+    font-size:x-large;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+input, select {
+    display: block;
+    font-size: medium;
+}
+
+
+label{
+    font-style:normal;
+    font-size: larger;
+    font-weight: bold;
+}
+mat-form-field{
+    display: block;
+    font-size: medium;
+    background-color: w;
+    padding-top: 5px;
+}
+.button-container {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+  }
+
+button{
+    background-color: white;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    background-color: #b7c0d3; 
+  }

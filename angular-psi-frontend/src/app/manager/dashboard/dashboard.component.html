@@ -1,0 +1,70 @@
+<div class="main-content">
+  <form>
+    <h1>Rides report</h1>
+    <h2>Time Period: <br> Start: {{ startDate | date:'dd/MM/yyyy' }} {{startTime}}<br> End: {{ endDate | date:'dd/MM/yyyy'
+      }}
+      {{endTime}} </h2>
+    <div class="dashboard-counters">
+      <a class="counter-card2" routerLink="/manager/dashboard/subtotal-ride" routerLinkActive="active"
+        [queryParamsHandling]="'preserve'">
+        <div class="counter-label">Total Rides:</div>
+        <div class="counter-label2"> {{ totals?.totalRides ?? '-' }}</div>
+      </a>
+      <a class="counter-card2" routerLink="/manager/dashboard/subtotal-time" routerLinkActive="active"
+        [queryParamsHandling]="'preserve'">
+        <div class="counter-label">Total Hours:</div>
+        <div class="counter-label2">{{ totals?.totalHours ?? '-' }} hours</div>
+      </a>
+      <a class="counter-card2" routerLink="/manager/dashboard/subtotal-distance" routerLinkActive="active"
+        [queryParamsHandling]="'preserve'">
+        <div class="counter-label">Total Distance:</div>
+        <div class="counter-label2">{{ totals?.totalDistance ?? '-' }} km</div>
+      </a>
+    </div>
+
+    <button mat-stroked-button (click)="isPressed()">Get Especific Date Info</button>
+    <div *ngIf="pressed">
+      <div class="taxis-menu">
+        <h2>Insert Date and Time</h2>
+        <div class="dashboard-counters">
+          <div class="counter-card">
+            <div class="custom-time-wrapper">
+              <label for="startDate">Start Date:
+                <input type="date" name="startDate" [(ngModel)]="startDate" id="startDate" class="custom-time-input" required />
+              </label>
+            </div>
+          </div>
+          <div class="counter-card">
+            <div class="custom-time-wrapper">
+              <label for="startTime">Start Time:
+                <input type="time" name="startTime" [(ngModel)]="startTime" id="startTime" class="custom-time-input" required />
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-counters">
+          <div class="counter-card">
+            <div class="custom-time-wrapper">
+              <label for="endDate">End Date:
+                <input type="date" name="endDate" [(ngModel)]="endDate" id="endDate" class="custom-time-input" required />
+              </label>
+            </div>
+          </div>
+          <div class="counter-card">
+            <div class="custom-time-wrapper">
+              <label for="endTime">End Time:
+                <input type="time" name="endTime" [(ngModel)]="endTime" id="endTime" class="custom-time-input" required />
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="button-wrapper">
+        <button mat-stroked-button (click)="reloadWithNewTime()">Search</button>
+      </div>
+    </div>
+
+    <router-outlet></router-outlet>
+  </form>
+</div>

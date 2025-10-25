@@ -1,0 +1,70 @@
+form {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border: 1px solid #cfd8dc;
+    border-radius: 8px;
+    max-width: 400px;
+  }
+  
+  h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 1rem;
+    color: #435960;
+    font-weight: bold;
+  }
+  
+  input,
+  select {
+    display: block;
+    width: 100%;
+    font-size: 1em;
+    padding: 0.5rem;
+    margin-top: 0.25rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+button{
+  background-color: white;
+  font-weight: bold;
+}
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 1rem;
+  }
+  
+  li {
+    background-color: #e0f2f1;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    max-width: 200px;
+  }
+  .main-content {
+    flex: 1;
+    padding: 2rem;
+    background-color: #b7c0d3;
+  }
+  form input,form select {
+    height: 30px;
+    font-size: 14px; 
+    padding: 2px 6px;
+    box-sizing: border-box;
+    
+  }
+
+  .price{
+    background-color: #e0f2f1;
+    max-width: 200px;
+  }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+    background-color: #b7c0d3; 
+  }

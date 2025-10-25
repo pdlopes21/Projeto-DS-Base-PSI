@@ -1,0 +1,59 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  background-color: #b7c0d3; 
+}
+
+
+label {
+    color: #435960;
+    font-weight: bold;
+  }
+  input {
+    font-size: 1em;
+    padding: .5rem;
+  }
+
+  .main-content {
+    min-height: 100vh;
+    flex: 1;
+    padding: 2rem;
+    background-color: #b7c0d3;
+  }
+
+  form {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border: 1px solid #cfd8dc;
+    border-radius: 8px;
+    max-width: 400px;
+  }
+
+  span[matListItemTitle]{
+    font-weight: bold;
+  }
+
+  span[matListItemLine]{
+    color: rgb(33, 33, 33);
+  }
+
+  span{
+    font-size: large;
+  }
+
+  button{
+    background-color: white;
+    font-weight: bold;
+  }
+
+  .rmBtn{
+    color: rgb(0, 0, 0);
+    background-color: rgb(227, 106, 106);
+  }
+
+  .rmBtn-disabled{
+    color: rgb(104, 104, 104);
+    background-color: rgb(146, 146, 146);
+  }
+
+  

@@ -1,0 +1,87 @@
+.main-content {
+  padding: 2rem;
+  background: #b7c0d3;
+  min-height: 100vh;
+}
+
+h2 {
+  color: #4b3ca7;
+  margin-bottom: 2rem;
+}
+
+.taxiOrders-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+}
+
+.taxiOrders-list li {
+  background: #f5f7fa;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px #0001;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: box-shadow 0.2s;
+}
+
+.taxiOrders-list li:hover {
+  box-shadow: 0 4px 16px #0002;
+}
+
+.taxiOrders-list div {
+  font-size: 1.1rem;
+  color: #222;
+}
+
+.taxiOrders-list button {
+  background: #edeaff;
+  color: #4b3ca7;
+  border: none;
+  border-radius: 6px;
+  padding: 0.7rem 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.taxiOrders-list button:hover {
+  background: #4b3ca7;
+  color: #fff;
+}
+
+@media (max-width: 700px) {
+  .taxiOrders-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .taxiOrders-list button {
+    margin-top: 1rem;
+    width: 100%;
+  }
+}
+
+.status-pending {
+  color: #f0ad4e;
+  font-weight: bold;
+}
+
+.status-accepted {
+  color: #5bc0de;
+  font-weight: bold;
+}
+
+.status-confirmed {
+  color: #5cb85c;
+  font-weight: bold;
+}
+
+.status-rejected,
+.status-canceled {
+  color: #d9534f;
+  font-weight: bold;
+}

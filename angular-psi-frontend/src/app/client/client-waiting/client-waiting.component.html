@@ -1,0 +1,157 @@
+<div class="main-content">
+    <!-- pedidos pendentes -->
+    <ng-container *ngIf="!taxiOrder?.offer && !confirmed && !offerRejected">
+        <div class="order-container">
+
+            <div class="order-wrapper">
+
+                <div class="order-box">
+                    <h2>Waiting for Driver</h2>
+                    <mat-progress-spinner mode="indeterminate" diameter="50" color="primary"></mat-progress-spinner>
+                    <div>
+                        <button mat-stroked-button (click)="cancel()" id="button">Cancel Order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+    <!-- pedido aceito, aguardando resposta do cliente -->
+    <ng-container *ngIf="taxiOrder?.offer && !confirmed">
+        <div class="order-container">
+
+            <div class="order-wrapper">
+
+                <div class="order-box">
+                    <h2>Waiting for Confirmation</h2>
+                    <ul class="taxiOrders-list">
+                        <li>
+                            <div>
+                                <strong>Driver's Name: </strong> {{taxiOrder?.offer?.driver?.name}} <br>
+                                <strong>Distance to you: </strong> {{taxiOrder?.offer?.distance}} km<br>
+                                <strong>Estimated Waiting Time: </strong> {{estimatedArrivalTime}} min<br>
+                                <strong>Estimated Ride Duration: </strong> {{estimatedRideTime}} min<br>
+                                <strong>Estimated Price: </strong> {{taxiOrder?.offer?.price}} €<br>
+                                <strong>Taxi Plate: </strong> {{taxiOrder?.offer?.taxi?.licensePlate}}<br>
+                                <strong>Taxi Model: </strong> {{taxiOrder?.offer?.taxi?.modelName}}<br>
+                                <strong>Taxi Brand: </strong> {{taxiOrder?.offer?.taxi?.brand}} <br>
+                                <strong>Taxi Year: </strong> {{taxiOrder?.offer?.taxi?.purchaseYear}}<br>
+                            </div>
+                        </li>
+                    </ul>
+                    <div id="2buttons">
+                        <button mat-stroked-button (click)="reject()">Reject Driver</button>
+                        <button mat-stroked-button (click)="confirm()">Confirm Order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+    <!-- oferta rejeitada pelo cliente -->
+    <ng-container *ngIf="offerRejected && !confirmed">
+        <div class="order-container">
+            <div class="order-wrapper">
+                <div class="order-box">
+                    <h2>Driver Rejected</h2>
+                    <h3>The driver has been rejected.</h3>
+                    <h3>What would you like to do?</h3>
+                    <div id="2buttons">
+                        <button mat-stroked-button (click)="cancel()">
+                            Cancel Order
+                        </button>
+                        <button mat-stroked-button (click)="findAnotherDriver()">
+                            Find Another Driver
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+    <!-- oferta confirmada pelo cliente -->
+    <ng-container *ngIf="confirmed && taxiOrder?.status !== 'driverArrived'">
+        <div class="order-container">
+            <div class="order-wrapper">
+                <div class="order-box">
+                    <h2>Waiting for Taxi Arrival</h2>
+                    <ul class="taxiOrders-list">
+                        <li>
+                            <div>
+                                <strong>Driver's Name: </strong> {{taxiOrder?.offer?.driver?.name}} <br>
+                                <strong>Distance to you: </strong> {{taxiOrder?.offer?.distance}} km<br>
+                                <strong>Time until Arrival: </strong> {{estimatedArrivalTime}} min <br>
+                                <strong>Estimated Ride Duration: </strong> {{estimatedRideTime}} min<br>
+                                <strong>Estimated Price: </strong> {{taxiOrder?.offer?.price}} €<br>
+                                <strong>Taxi Plate: </strong> {{taxiOrder?.offer?.taxi?.licensePlate}}<br>
+                                <strong>Taxi Model: </strong> {{taxiOrder?.offer?.taxi?.modelName}}<br>
+                                <strong>Taxi Brand: </strong> {{taxiOrder?.offer?.taxi?.brand}} <br>
+                                <strong>Taxi Year: </strong> {{taxiOrder?.offer?.taxi?.purchaseYear}}<br>
+                            </div>
+                        </li>
+                    </ul>
+                    <mat-progress-spinner mode="indeterminate" diameter="50" color="primary"></mat-progress-spinner>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+    <!-- motorista chegou ao local do cliente -->
+    <ng-container *ngIf="taxiOrder?.status === 'driverArrived' && !completedRide">
+        <div class="order-container">
+            <div class="order-wrapper">
+                <div class="order-box">
+                    <h2>Driver Has Arrived!</h2>
+                    <ul class="taxiOrders-list">
+                        <li>
+                            <div>
+                                <strong>Driver's Name: </strong> {{taxiOrder?.offer?.driver?.name}} <br>
+                                <strong>Estimated Ride Duration: </strong> {{estimatedRideTime}} min<br>
+                                <strong>Estimated Price: </strong> {{taxiOrder?.offer?.price}} €<br>
+                                <strong>Taxi Plate: </strong> {{taxiOrder?.offer?.taxi?.licensePlate}}<br>
+                                <strong>Taxi Model: </strong> {{taxiOrder?.offer?.taxi?.modelName}}<br>
+                                <strong>Taxi Brand: </strong> {{taxiOrder?.offer?.taxi?.brand}} <br>
+                                <strong>Taxi Year: </strong> {{taxiOrder?.offer?.taxi?.purchaseYear}}<br>
+                            </div>
+                        </li>
+                    </ul>
+                    <button *ngIf="!isWaitingForRide" mat-stroked-button (click)="waitForRideEnd()">
+                        Wait for ride to end
+                    </button>
+                    <mat-progress-spinner *ngIf="isWaitingForRide" mode="indeterminate" diameter="50"
+                        color="primary"></mat-progress-spinner>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+    <!-- quando a viagem terminar -->
+    <ng-container *ngIf="completedRide">
+        <div class="order-container">
+            <div class="order-wrapper">
+                <div class="order-box">
+                    <h2>Ride Completed!</h2>
+                    <ul class="taxiOrders-list">
+                        <li>
+                            <div>
+                                <strong>Distance:</strong> {{ completedRide.distanceKm }} km<br>
+                                <strong>Price:</strong> {{ completedRide.price }} €<br>
+                                <strong>Start:</strong>
+                                {{ completedRide.startAddress?.street }}<br>
+                                <strong>End:</strong>
+                                {{ completedRide.endAddress?.street }}<br>
+                                <strong>Start Time:</strong>
+                                {{ completedRide.timePeriod.start | date:'short' }}<br>
+                                <strong>End Time:</strong>
+                                {{ completedRide.timePeriod.end | date:'short' }}<br>
+                            </div>
+                        </li>
+                    </ul>
+                    <button mat-stroked-button (click)="toHome()">OK</button>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+
+</div>

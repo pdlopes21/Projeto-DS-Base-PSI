@@ -1,0 +1,58 @@
+<form id="form1">
+ 
+    <legend>New Driver Details:</legend>
+
+    <mat-form-field appearance="outline">
+      <mat-label>NIF</mat-label>
+      <input matInput type="text" id="nif" placeholder="Ex: 123456789" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput type="text" id="name" placeholder="Ex: Miguel Silva" />
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Drivers License</mat-label>
+      <input matInput type="text" id="driversLicense" placeholder="Ex: 1234ABCD" />
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Year of Birth</mat-label>
+      <input matInput type="text" id="birthYear" placeholder="Ex: 1990" />
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Gender</mat-label>
+      <mat-select [(ngModel)]="driver.gender" name="Gender" required>
+        <mat-option value="male">Male</mat-option>
+        <mat-option value="female">Female</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <legend>Address:</legend>
+    <mat-form-field appearance="outline">
+      <mat-label>Postal Code</mat-label>
+      <div class="postal-code-container">
+        <input matInput type="text" id="postalCode" placeholder="Ex: 1234-567" />
+        <button mat-raised-button color="primary" id="postalButton" (click)="onSubmitPostalCode()">Submit</button>
+      </div>
+    </mat-form-field>
+    
+    <label for="locality">Locality:</label>
+    <span id="localityDisplay" class="locality-display">{{ address.locality || 'Not Found' }}</span>
+    
+    <mat-form-field appearance="outline">
+      <mat-label>Street</mat-label>
+      <input matInput type="text" id="street" placeholder="Ex: Rua X" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Door Number</mat-label>
+      <input matInput type="text" id="doorNumber" placeholder="Ex: 4D" />
+    </mat-form-field>
+
+    <button mat-stroked-button type="button" id="addRow" (click)="onSubmitDriver()" style="display: block; margin: 1rem auto 0 auto;">
+      Process Driver
+    </button>
+</form>

@@ -1,0 +1,71 @@
+.shifts-list li {
+  display: flex;
+  position: relative;
+  cursor: pointer;
+}
+
+.shifts-list li:hover {
+  left: .1em;
+}
+
+.shifts-list {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+}
+
+div button{
+  font-weight: bold;
+  background-color: white;
+}
+
+.shifts-list a {
+  color: #333;
+  text-decoration: none;
+  background-color: #b7c0d3;
+  margin: .5em;
+  padding: .3em 0;
+  border-radius: 7px;
+  display: block;
+  width: 100%;
+}
+
+
+.shifts-list a:hover {
+  color: #2c3a41;
+  background-color: #e6e6e6;
+}
+
+.shifts-list a:active {
+  background-color: #525252;
+  color: #fafafa;
+}
+
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background-color: #b7c0d3; 
+}
+
+mat-list-item {
+  padding: 8px 16px;
+  min-height: 140px;
+  align-items: flex-start;
+  white-space: normal;
+  box-sizing: border-box;
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  background-color: #b7c0d3;
+}
+
+.shift-form{
+  background-color: #ffffff;
+}
+
+
+

@@ -1,0 +1,70 @@
+<div class="main-content">
+  <h2>Set Prices</h2>
+  <form (ngSubmit)="onSubmitPrice()">
+    <label for="taxiType">Confort type:
+      <select [(ngModel)]="price.taxiType" name="taxiType" id="taxiType" required>
+        <option *ngFor="let t of taxiTypes" [value]="t">{{ t }}</option>
+      </select>
+    </label>
+    <label for="pricePerMinute">Euro / min:
+      <input
+        type="number"
+        [(ngModel)]="price.pricePerMinute"
+        name="pricePerMinute"
+        id="pricePerMinute"
+        min="0"
+        required
+      />
+    </label>
+    <button mat-stroked-button type="submit">Save</button>
+  </form>
+
+  <ul>
+    <li *ngFor="let p of prices">
+      {{ p.taxiType }}: {{ p.pricePerMinute }}€
+    </li>
+  </ul>
+
+  <hr/>
+  
+  <form (ngSubmit)="onSubmitNightIncrease()">
+    <label for="nightTimeIncrease">Night Shift increase (%)<br>
+      <small>(between 21h e 6h)</small>
+      <input
+        type="number"
+        [(ngModel)]="nightTimeIncreaseInput"
+        name="nightTimeIncreaseInput"
+        id="nightTimeIncrease"
+        min="0"
+        max="100"
+        required
+      />
+    </label>
+    <button mat-stroked-button type="submit">Save</button>
+  </form>
+
+  <p><strong>Night Shift Increase:</strong> {{ nightTimeIncrease }}%</p>
+
+  <hr/>
+
+  <h2>Calculate Trip Cost</h2>
+  <form (ngSubmit)="calculate()">
+    <label for="taxiTypeCalc">Taxi Type:
+      <select [(ngModel)]="calc.taxiType" name="taxiTypeCalc" id="taxiTypeCalc" required>
+        <option *ngFor="let t of taxiTypes" [value]="t">{{ t }}</option>
+      </select>
+    </label>
+
+    <label for="start">Start (HH:MM):
+      <input type="time" [(ngModel)]="calc.start" name="start" id="start" required />
+    </label>
+
+    <label for="end">Finish (HH:MM):
+      <input type="time" [(ngModel)]="calc.end" name="end" id="end" required />
+    </label>
+
+    <button mat-stroked-button type="submit">Calculate</button>
+  </form>
+
+  <p><strong>Price:</strong> {{ calc.cost | currency: 'EUR' }}</p>
+</div>

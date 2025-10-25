@@ -1,0 +1,45 @@
+<div class="main-content">
+  <div *ngIf="driver">
+
+    <form>
+      <h1 font-size="larger">{{driver.name}} Details:</h1>
+      <mat-list>
+        <mat-list-item>
+          <span matListItemTitle id="title">NIF:</span>
+          <span matListItemLine id="line">{{ driver.nif }}</span>
+        </mat-list-item>
+        <mat-list-item>
+          <span matListItemTitle id="title">Address:</span>
+          <span matListItemLine>{{ driver.address.street }}</span>
+        </mat-list-item>
+        <mat-list-item>
+          <span matListItemTitle id="title">Birth Year:</span>
+          <span matListItemLine id="line">{{ driver.birthYear }}</span>
+        </mat-list-item>
+        <mat-list-item>
+          <span matListItemTitle id="title">Gender:</span>
+          <span matListItemLine id="line">{{ driver.gender }}</span>
+        </mat-list-item>
+      </mat-list>
+      <button mat-stroked-button type="button" id="addRow" (click)="goToEditDriver()">
+        Edit Driver Details
+      </button>
+
+    </form>
+
+    <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+      <button mat-stroked-button type="button" (click)="goBack()">Go Back</button>
+
+      <button mat-stroked-button color="warn" class="rmBtn" *ngIf="!hasShifts"
+        (click)="removeDriver()">
+        Remove Driver
+      </button>
+
+      <button mat-stroked-button color="accent" class="rmBtn-disabled" *ngIf="hasShifts"
+        (click)="removeDriver()">
+        Cannot Remove Driver
+      </button>
+    </div>
+
+  </div>
+</div>

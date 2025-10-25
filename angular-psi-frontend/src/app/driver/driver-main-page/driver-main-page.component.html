@@ -1,0 +1,31 @@
+<body>
+  <div class="layout-container">
+    <nav class="sidebar" [ngClass]="{ 'closed': !sidebarOpen }">
+
+      <p id="first">Select a Tab:</p>
+      <a routerLink="/driver/dashboard" routerLinkActive="active" (click)="closeSidebarIfMobile() ">Reserve a Taxi</a>
+      <a routerLink="/driver/taxiOrders" routerLinkActive="active" (click)="closeSidebarIfMobile() ">Client Orders</a>
+      <a routerLink="/driver/records" routerLinkActive="active" (click)="closeSidebarIfMobile() ">Past Rides</a>
+      <a routerLink="/driver/shifts" routerLinkActive="active" (click)="closeSidebarIfMobile() ">My Shifts</a>
+    </nav>
+
+    <div class="content-wrapper">
+      <mat-toolbar>
+        <button mat-icon-button (click)="toggleSidebar()">
+          <span class="material-icons">menu</span>
+        </button>
+        <span id="title">{{ title }}</span>
+        <span class="material-icons">directions_car</span>
+        <span class="spacer"></span>
+        <button mat-icon-button class="logout-btn" (click)="logout()">
+          <span class="material-icons">logout</span>
+        </button>
+      </mat-toolbar>
+
+      <div class="main-content">
+        <router-outlet></router-outlet>
+        
+      </div>
+    </div>
+  </div>
+</body>

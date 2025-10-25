@@ -1,0 +1,33 @@
+<h1>Finish Ride</h1>
+
+<form (ngSubmit)="finishRide()">
+
+    <div class="custom-time-wrapper">
+        <label for="endDate">End Date</label><br>
+        <input type="date" id="endDate" [(ngModel)]="endDateStr" name="endDate" [min]="minEndDate"
+            [max]="maxEndDate" class="custom-time-input" />
+    </div>
+    <legend>End Time:</legend>
+    <div class="custom-time-wrapper">
+        <label for="endTime"></label><br>
+        <input type="time" id="endTime" [(ngModel)]="endTimeStr" name="endTime" required class="custom-time-input" />
+    </div>
+
+    <legend>End Address:</legend><br>
+    <mat-form-field appearance="outline">
+        <mat-label>Locality</mat-label>
+        <input matInput [(ngModel)]="translatedEndAddress.locality" name="endLocality" required />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Street</mat-label>
+        <input matInput [(ngModel)]="translatedEndAddress.street" name="endStreet" required />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Door Number</mat-label>
+        <input matInput [(ngModel)]="translatedEndAddress.doorNumber" name="endDoor" required />
+    </mat-form-field>
+
+    <div class="button-wrapper">
+        <button mat-stroked-button type="submit">Finish Ride</button>
+    </div>
+</form>

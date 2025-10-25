@@ -1,0 +1,22 @@
+.main-content {
+    flex: 1;
+    margin-top: -60px;
+    padding: 2rem;
+    background-color: #b7c0d3;
+  }
+
+  form div{
+    font-size: large;
+    padding-top: 2px;
+  }
+  button{
+    margin-top: -3px;
+    background-color: white;
+    font-weight: bold;
+  }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+    background-color: #b7c0d3; 
+  }

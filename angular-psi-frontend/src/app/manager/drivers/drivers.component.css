@@ -1,0 +1,66 @@
+
+.drivers-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+
+}
+
+
+.driver-item {
+  margin: 10px 10px ;
+  width: 300px; 
+}
+
+
+.driver-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  background-color: #d1d8e6;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  width: 100%; 
+}
+
+.driver-link:hover {
+  background-color: #e6e6e6;
+}
+
+.driver-nif {
+  color: #333;
+  padding: 5px 10px;
+  border-radius: 3px;
+  margin-right: 10px;
+}
+
+
+.driver-nome {
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 3px;
+  margin-right: 10px;
+  background-color: #405061;
+  color: #fafafa;
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  background-color: #b7c0d3;
+}
+
+button{
+  background-color: white;
+  font-weight: bold;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background-color: #b7c0d3; 
+}

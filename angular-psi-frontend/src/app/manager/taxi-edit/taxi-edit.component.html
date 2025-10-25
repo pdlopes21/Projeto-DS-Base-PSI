@@ -1,0 +1,47 @@
+<div class="main-content">
+  <h1>Company's Taxi Information</h1>
+  <form *ngIf="taxi" id="form1" #taxiForm="ngForm">
+    <legend>Edit Taxi Details:</legend>
+
+    <mat-form-field appearance="fill">
+      <mat-label>License Plate</mat-label>
+      <input matInput type="text" name="licensePlate" [(ngModel)]="taxi.licensePlate" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Model</mat-label>
+      <input matInput type="text" name="modelName" [(ngModel)]="taxi.modelName" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Brand</mat-label>
+      <input matInput type="text" name="brand" [(ngModel)]="taxi.brand" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Year</mat-label>
+      <input matInput type="number" name="purchaseYear" [(ngModel)]="taxi.purchaseYear" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Comfort Level</mat-label>
+      <mat-select [(ngModel)]="taxi.comfortLevel" name="comfortLevel" [disabled]="hasRides" required>
+        <mat-option value="standard">Standard</mat-option>
+        <mat-option value="luxury">Luxury</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div *ngIf="hasRides" style="color:gray;font-size:small;margin-bottom:1em;">
+      (Cannot change after first ride)
+    </div>
+
+    <div style="display: flex; gap: 1rem; margin-bottom: 1rem; justify-content: center;">
+      <button mat-stroked-button type="button" (click)="goBack()">Go Back</button>
+
+      <button mat-stroked-button type="button" id="addRow" (click)="onSubmitEdit()">
+        Edit Taxi
+      </button>
+    </div>
+    
+  </form>
+</div>

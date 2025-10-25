@@ -1,0 +1,18 @@
+<div class = "main-content">
+  <div class="shifts-list">
+    <form *ngIf="shifts.length > 0">
+      <h1>Your Shifts:</h1>
+      <mat-list>
+        <mat-list-item *ngFor="let shift of shifts">
+          <form class="shift-form">
+          <span>
+            <b>Start:</b>{{ shift.timePeriod.start | date:'dd/MM/yy, HH:mm' }}<br>
+            <b>End:</b>{{ shift.timePeriod.end | date:'dd/MM/yy, HH:mm' }}<br>
+            <b>Taxi:</b>{{ shift.taxi.licensePlate }} - {{ shift.taxi.brand }} {{ shift.taxi.modelName }} - {{shift.taxi.comfortLevel}}
+          </span>
+        </form>
+        </mat-list-item>
+      </mat-list>
+    </form>
+  </div>
+</div>

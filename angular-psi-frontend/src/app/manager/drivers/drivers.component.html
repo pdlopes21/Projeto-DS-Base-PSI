@@ -1,0 +1,20 @@
+<div class="main-content">
+
+<h1>Company's Drivers Information</h1>
+
+<div *ngIf="clicked">
+  <button mat-stroked-button type="button" (click)="onClick()">Cancel Creation</button>
+  <app-driver-forms></app-driver-forms>
+</div>
+<div *ngIf="!clicked">
+  <button mat-stroked-button type="button" (click)="onClick()">Add Driver +</button>
+</div>
+<ul class="drivers-list">
+  <li *ngFor="let driver of drivers" class="driver-item">
+    <a routerLink="/manager/driver-detail/{{driver._id}}" class="driver-link">
+      <span class="driver-nome">{{ driver.name }}</span>
+      <span class="driver-nif">NIF: {{ driver.nif }}</span>
+    </a>
+  </li>
+</ul>
+</div>

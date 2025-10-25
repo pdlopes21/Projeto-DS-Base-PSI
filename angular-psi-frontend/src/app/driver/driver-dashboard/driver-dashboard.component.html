@@ -1,0 +1,37 @@
+<div class="main-content">
+  <form (ngSubmit)="onSubmitPeriod()" #periodForm="ngForm">
+    <h1 font-size="large">Select Shift Period</h1>
+    <label for="startDate">Start Date:
+      <input type="date" [(ngModel)]="shiftStart.date" name="startDate" id="startDate" required />
+    </label>
+    <label for="startTime">Start Time:
+      <input type="time" [(ngModel)]="shiftStart.time" name="startTime" id="startTime" required />
+    </label>
+    <label for="endDate">End Date:
+      <input type="date" [(ngModel)]="shiftEnd.date" name="endDate" id="endDate" required />
+    </label>
+    <label for="endTime">End Time:
+      <input type="time" [(ngModel)]="shiftEnd.time" name="endTime" id="endTime" required />
+    </label>
+    <button mat-raised-button color="primary" type="submit">Show Available Taxis</button>
+  </form>
+
+  <div *ngIf="taxis.length > 0">
+    <form>
+      <h1>Available Taxis:</h1>
+      <ul class="taxis">
+        <li *ngFor="let taxi of taxis">
+          <a (click)="chooseTaxi(taxi)">
+            <span class="LicensePlate">{{taxi.licensePlate}}</span>
+            <span class="Model">{{taxi.modelName}}</span>
+          </a>
+        </li>
+      </ul>
+    </form>
+  </div>
+  <div *ngIf="taxis.length <= 0">
+    <form>
+      <h3>No taxis available for such time period</h3>
+    </form>
+  </div>
+</div>

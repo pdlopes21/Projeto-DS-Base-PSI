@@ -1,0 +1,33 @@
+<div class="login-container">
+    <div class="login-box">
+        <h1 class="login-title">Gamer Taxis</h1>
+        <h2 class="login-subtitle">Client Login</h2>
+
+        <form (ngSubmit)="login()" #loginForm="ngForm" id="form1">
+            <div class="input-group">
+                <mat-form-field appearance="fill" class="nif-field">
+                    <mat-label>Select Your NIF</mat-label>
+                    <mat-select name="selectedNif" [(ngModel)]="selectedNif">
+
+                        <mat-option [value]="''"></mat-option>
+                        <mat-option [value]="''">vai ter q ter o listar clientes aqui</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <div class="or">or</div>
+
+                <mat-form-field appearance="fill" class="nif-field">
+                    <mat-label>Enter Your NIF</mat-label>
+                    <input matInput name="nifInput" [(ngModel)]="nifInput" />
+                </mat-form-field>
+            </div>
+
+
+            <span>
+                <button mat-button color="warn" routerLink="/login" style="margin-top: 1rem;">Go back</button>
+                <button mat-stroked-button type="submit">Login</button>
+            </span>
+        </form>
+    </div>
+</div>
+

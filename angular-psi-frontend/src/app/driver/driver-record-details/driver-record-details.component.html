@@ -1,0 +1,49 @@
+<div class="main-content">
+  <div *ngIf="record">
+    <button mat-stroked-button type="button" (click)="goBack()">
+      Go Back
+    </button>
+
+    <form>
+      <h1 font-size="larger">Ride Details:</h1>
+      <mat-list>
+        <mat-list-item>
+          <span matListItemTitle>Client:</span>
+          <span matListItemLine>{{ record.client.name }}</span>
+        </mat-list-item>
+        <mat-list-item>
+          <span matListItemTitle>Start:</span>
+          <span matListItemLine>{{ record.timePeriod.start | date:'dd/MM/yy, HH:mm'  }}</span>
+        </mat-list-item>
+        <mat-list-item>
+          <span matListItemTitle>End:</span>
+          <span matListItemLine>{{ record.timePeriod.end | date:'dd/MM/yy, HH:mm'  }}</span>
+        </mat-list-item>
+        <mat-list-item>
+          <span matListItemTitle>People:</span>
+          <span matListItemLine>{{ record.numberOfPeople }}</span>
+        </mat-list-item>
+        <mat-list-item>
+          <span matListItemTitle>Distance:</span>
+          <span matListItemLine>{{ record.distanceKm }} km</span>
+        </mat-list-item>
+        <mat-list-item>
+          <span matListItemTitle>Price:</span>
+          <span matListItemLine>€{{ record.price }}</span>
+        </mat-list-item>
+        <mat-list-item>
+          <span matListItemTitle>From:</span>
+          <span matListItemLine>{{ formatAddress(record.startAddress) }}</span>
+        </mat-list-item>
+        <mat-list-item>
+          <span matListItemTitle>To:</span>
+          <span matListItemLine>{{ formatAddress(record.endAddress) }}</span>
+        </mat-list-item>
+        <mat-list-item>
+          <span matListItemTitle>Sequence number:</span>
+          <span matListItemLine>{{ record.sequenceNumber }}</span>
+        </mat-list-item>
+      </mat-list>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,97 @@
+<div class="order-container">
+
+    <div class="order-wrapper">
+
+        <h1 class="order-title">Order Form</h1>
+
+        <div class="order-box">
+            <h3>Insert your infomation to progress with the order:</h3>
+
+            <legend>Personal info:</legend>
+
+            <mat-form-field appearance="outline">
+                <mat-label>NIF</mat-label>
+                <input matInput type="text" id="nif" placeholder="Ex: 123456789" />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput type="text" id="name" placeholder="Ex: Miguel Silva" />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Gender</mat-label>
+                <mat-select name="gender" id="gender" [(ngModel)]="gender" required>
+                    <mat-option value="male">Male</mat-option>
+                    <mat-option value="female">Female</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <legend>Ride information:</legend>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Taxi Confort Level</mat-label>
+                <mat-select name="confort" id="confort" [(ngModel)]="confort" required>   
+                    <mat-option value="standard">Standard</mat-option>
+                    <mat-option value="luxury">Luxury</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>No. of Passengers</mat-label>
+                <input matInput type="text" id="num" [(ngModel)]="num" placeholder="Ex: 1" />
+            </mat-form-field>
+
+            <legend>Your Address:</legend>
+            <div id="map-link" target="_blank" font-weight="bold"></div>
+            
+            <mat-form-field appearance="outline">
+                <mat-label>Locality</mat-label>
+                <input matInput type="text" id="locality" [(ngModel)]="locality" (blur)="onInfoChange()" placeholder="Ex: Lisboa" />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Street</mat-label>
+                <input matInput type="text" id="street" [(ngModel)]="street" (blur)="onInfoChange()" placeholder="Ex: Rua X" />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Post Code</mat-label>
+                <input matInput type="text" id="postcode" [(ngModel)]="postCode" (blur)="onInfoChange()"
+                    placeholder="Ex: 1234-567" />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Door Number</mat-label>
+                <input matInput type="text" id="doorNumber" [(ngModel)]="doorNumber" (blur)="onInfoChange()" placeholder="Ex: 4D" />
+            </mat-form-field>
+            <legend>Destiny Address:</legend>
+            <div>
+                <div id="map" target="_blank"></div>
+            </div>
+            
+            <mat-form-field appearance="outline">
+                <mat-label>Locality</mat-label>
+                <input matInput type="text" id="localityDestiny" [(ngModel)]="localityDestiny" (blur)="onInfoChange()" placeholder="Ex: Lisboa" />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Street</mat-label>
+                <input matInput type="text" id="streetDestiny" [(ngModel)]="streetDestiny" (blur)="onInfoChangeDestiny()"
+                    placeholder="Ex: Rua X" />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                    <mat-label>Post Code</mat-label>
+                <input matInput type="text" id="postcodeDestiny" [(ngModel)]="postCodeDestiny" (blur)="onInfoChangeDestiny()"
+                    placeholder="Ex: 1234-567" />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                    <mat-label>Door Number</mat-label>
+                <input matInput type="text" id="doorNumberDestiny" [(ngModel)]="doorNumberDestiny" (blur)="onInfoChangeDestiny()"
+                    placeholder="Ex: 4D" />
+            </mat-form-field>
+            <div style="display: flex; gap: 10px;">
+                <button mat-stroked-button type="button" routerLink="/login" id="cancelOrder">
+                    Cancel Order
+                </button>
+                <button mat-stroked-button type="button" id="orderTaxi" (click)="onSubmitOrder()">
+                    Order a G4m3rT4x1
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

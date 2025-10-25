@@ -1,0 +1,66 @@
+<form *ngIf="driver" id="form1" #driverForm="ngForm">
+
+  <legend>Edit Driver Details:</legend> <br>
+
+  <mat-form-field appearance="outline">
+    <mat-label>NIF</mat-label>
+    <input matInput type="text" id="nif" name="nif" [(ngModel)]="driver.nif" required />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput type="text" id="name" name="name" [(ngModel)]="driver.name" required />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Drivers License</mat-label>
+    <input matInput type="text" id="driversLicense" name="driversLicense" [(ngModel)]="driver.driversLicense"
+      required />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Year of Birth</mat-label>
+    <input matInput type="text" id="birthYear" name="birthYear" [(ngModel)]="driver.birthYear" required />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Gender</mat-label>
+    <mat-select [(ngModel)]="driver.gender" name="gender" required>
+      <mat-option value="male">Male</mat-option>
+      <mat-option value="female">Female</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <legend>Address:</legend>
+  <mat-form-field appearance="outline">
+    <mat-label>Postal Code</mat-label>
+    <div class="postal-code-container">
+      <input matInput type="text" id="postalCode" name="postalCode" [(ngModel)]="driver.address.postalCode" />
+      <button mat-raised-button color="primary" id="postalButton" (click)="onSubmitPostalCode()">Submit</button>
+    </div>
+  </mat-form-field>
+
+  <label for="locality">Locality:</label>
+  <span id="localityDisplay" class="locality-display">
+    {{ driver.address.locality || 'Not Found' }}
+  </span>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Street</mat-label>
+    <input matInput type="text" id="street" name="street" [(ngModel)]="driver.address.street" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Door Number</mat-label>
+    <input matInput type="text" id="doorNumber" name="doorNumber" [(ngModel)]="driver.address.doorNumber" />
+  </mat-form-field>
+
+  <div style="display: flex; gap: 1rem; margin-bottom: 1rem; justify-content: center;">
+    <button mat-stroked-button type="button" (click)="goBack()">Go Back</button>
+
+    <button mat-stroked-button type="button" id="addRow" (click)="onSubmitEdit()">
+      Edit Driver
+    </button>
+  </div>
+
+</form>

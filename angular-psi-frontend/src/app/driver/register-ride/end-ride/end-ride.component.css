@@ -1,0 +1,96 @@
+legend{
+    font-size:x-large;
+    font-weight: bold;
+}
+
+input[type=text], input[type=number], select {
+    display: block;
+    font-size: medium;
+    padding-top: 5px;
+}
+
+label{
+    font-style:normal;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.postal-code-container {
+    display: flex;
+    align-items: center;
+    height: 20px;
+
+  }
+  
+.locality-display {
+  display: block; 
+  padding: 8px;
+  background-color: #929AAB;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  min-height: 20px;
+  line-height: 20px;
+  color: #333;
+  margin-top: 5px; 
+  margin-bottom: 15px; 
+  margin-right: 100px;
+  min-width: 100px;
+  max-width: 150px; 
+  
+}
+button {
+  background-color: white;
+  font-size: medium;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border: 1px solid #cfd8dc;
+  border-radius: 8px;
+  max-width: 450px;
+  
+}
+
+mat-form-field{
+  display: block;
+  font-size: medium;
+  background-color: w;
+  padding-top: 5px;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background-color: #b7c0d3; 
+}
+
+.custom-time-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+  font-family: Roboto, sans-serif;
+}
+
+.custom-time-input {
+  padding: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.23);
+  border-radius: 4px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s;
+  background-color: #D1D8E6;
+  color: #000;
+}
+
+.custom-time-input:focus {
+  border-color: #3f51b5;
+  box-shadow: 0 0 0 1px #3f51b5;
+}

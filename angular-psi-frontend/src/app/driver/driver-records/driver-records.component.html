@@ -1,0 +1,26 @@
+<form>
+  <h1>Past Rides:</h1>
+  <ng-container *ngIf="records?.length! > 0; else noRecords">
+    <div *ngFor="let dateKey of sortedDates">
+      <h2>{{ dateKey }}</h2>
+      <ul class="records">
+        <li *ngFor="let record of groupedRecords[dateKey]">
+          <button type="button"
+                  class="record-btn"
+                  (click)="goToRecordDetails(record)">
+            <span class="RideDate">
+              {{ record.timePeriod.start | date:'HH:mm' }}
+            </span>
+            <span class="ClientName">
+              {{ record.client.name }}
+            </span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </ng-container>
+
+  <ng-template #noRecords>
+    <h3>No Records Found</h3>
+  </ng-template>
+</form>

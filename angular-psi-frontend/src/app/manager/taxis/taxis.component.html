@@ -1,0 +1,24 @@
+<div class="main-content">
+  <h1>Company's Taxi Information</h1>
+
+<div *ngIf="clicked">
+  <button mat-stroked-button type="button" (click)="onClick()">Cancel Creation</button>
+  <app-taxi-forms></app-taxi-forms>
+</div>
+<div *ngIf="!clicked">
+<button mat-stroked-button type="button" (click)="onClick()">Add Taxi</button>
+</div>
+<ul class="taxis">
+    <li *ngFor="let taxi of taxis">
+      <a [routerLink]="['/manager/taxi-detail', taxi._id]">
+        <span class="matricula">{{taxi.licensePlate}}</span>
+        <span class="modelo">{{taxi.modelName}}</span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+
+
+

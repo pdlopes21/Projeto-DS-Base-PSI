@@ -1,0 +1,59 @@
+<div class="main-content">
+    <div id="button-centralized">
+    <button mat-stroked-button (click)="goBack()">Minimize</button>
+  </div>
+    <h1>Taxis List:</h1>
+    <ul class="taxis-list">
+      <div *ngFor="let taxi of orderedTaxisByDistanceDesc; let y=index">
+        <li>
+        <div>
+          <a [routerLink]="['/manager/taxi-detail', taxi.id]">Taxi Plate: {{taxi.name}}</a><br>
+          <strong>Distance traveled: {{taxi.totalDistance}} km</strong>
+          <span ></span>
+        </div>
+        <button (click)="getMoreInfoTaxi(y)">{{ openedIndexTaxi === y ? 'See Less' : 'See More' }}</button>
+      </li>
+      <div *ngIf="openedIndexTaxi === y">
+        <div *ngFor="let ride of orderedTaxiRidesByDistanceDesc">
+          <ul>
+            <li class="subtlist">
+            <div>
+              <strong>Client Name: {{ride.client.name}}</strong> <br>
+              <strong>End Address: {{ formatAddress(ride.endAddress) }}</strong><br>
+              <strong>Ride Distance: {{ride.distanceKm}} Km</strong>
+            </div>
+            <button (click)="goToTripInfo(ride._id)">More Info</button>
+          </li>
+        </ul>
+        </div>
+      </div>
+      </div>
+    </ul>
+    <h1>Drivers List:</h1>
+    <ul class="taxis-list">
+      <div *ngFor="let driver of orderedDriversByDistanceDesc; let i=index">
+        <li>
+        <div>
+          <a [routerLink]="['/manager/driver-detail', driver.id]">Name: {{driver.name}} </a><br>
+          <strong>Distance traveled: {{driver.totalDistance}} km</strong>
+          <span ></span>
+        </div>
+        <button id="seeMore" (click)="getMoreInfoDriver(i)">{{ openedIndexDriver === i ? 'See Less' : 'See More' }}</button>
+      </li>
+      <div *ngIf="openedIndexDriver === i">
+        <div *ngFor="let ride of orderedDriverRidesByDistanceDesc">
+          <ul>
+            <li class="subtlist">
+            <div>
+              <strong>Client Name: {{ride.client.name}}</strong> <br>
+              <strong>End Address: {{ formatAddress(ride.endAddress) }}</strong><br>
+              <strong>Ride Distance: {{ride.distanceKm}} Km</strong>
+            </div>
+            <button (click)="goToTripInfo(ride._id)">More Info</button>
+          </li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </ul>
+</div>

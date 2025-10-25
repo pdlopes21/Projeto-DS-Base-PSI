@@ -1,0 +1,107 @@
+.main-content {
+padding: 2rem;
+    background: #b7c0d3;
+    min-height: 100vh;
+}
+
+h2 {
+color: #4b3ca7;
+    margin-bottom: 2rem;
+}
+
+.taxiOrders-list {
+list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+}
+
+.taxiOrders-list li {
+background: #f5f7fa;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px #0001;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: box-shadow 0.2s;
+}
+
+.taxiOrders-list li:hover {
+box-shadow: 0 4px 16px #0002;
+}
+
+.taxiOrders-list div {
+font-size: 1.1rem;
+    color: #222;
+}
+
+@media (max-width: 700px) {
+.taxiOrders-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+}
+}
+
+.mat-mdc-form-field {
+    margin-top: 3px;
+}
+.mat-stepper-vertical {
+    background-color: #929AAB;
+    padding: 2rem 3rem;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.order-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.order-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #b7c0d3;
+}
+
+.order-box {
+    background-color: #c5d6de;
+    padding: 2rem 3rem;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 370px;
+    max-height: 700px;
+    width: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    scrollbar-width: thin;
+    scrollbar-color: #929AAB #c5d6de;
+}
+
+button {
+    background-color: white;
+    font-size: medium;
+    cursor: pointer;
+    padding: 1rem;
+    margin-right: 10px;
+    margin-bottom: 1rem;
+    margin-left: 10px;
+    margin-top: 2rem;
+    font-weight: bold;
+}
+
+.mat-progress-spinner {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+body {
+    padding: 20px;
+    background-color: #ffffc9;
+}

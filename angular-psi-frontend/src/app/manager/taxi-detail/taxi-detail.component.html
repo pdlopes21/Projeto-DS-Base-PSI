@@ -1,0 +1,39 @@
+<div class="main-content">
+  <div *ngIf="taxi">
+
+    <form>
+      <h1 font-size="large">{{taxi.licensePlate}} Details:</h1>
+      <mat-list>
+        <mat-list-item>
+          <span matListItemTitle>Taxi Plate:</span>
+          <span matListItemLine>{{ taxi.licensePlate }}</span>
+        </mat-list-item>
+        <mat-list-item>
+          <span matListItemTitle>Model:</span>
+          <span matListItemLine>{{ taxi.modelName }}</span>
+        </mat-list-item>
+        <mat-list-item>
+          <span matListItemTitle>Brand:</span>
+          <span matListItemLine>{{ taxi.brand }}</span>
+        </mat-list-item>
+        <mat-list-item>
+          <span matListItemTitle>Year:</span>
+          <span matListItemLine>{{ taxi.purchaseYear }}</span>
+        </mat-list-item>
+      </mat-list>
+      <button mat-stroked-button type="button" (click)="editTaxi()">Edit Taxi Details</button>
+    </form>
+
+    <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+      <button mat-stroked-button type="button" (click)="goBack()">Go Back</button>
+
+      <button mat-stroked-button type="button" color="warn" class="rmBtn" *ngIf="!hasShifts" (click)="removeTaxi()">
+        Remove Taxi
+      </button>
+
+      <button mat-stroked-button type="button" color="accent" class="rmBtn-disabled" *ngIf="hasShifts" (click)="removeTaxi()">
+        Cannot Remove Taxi
+      </button>
+    </div>
+  </div>
+</div>

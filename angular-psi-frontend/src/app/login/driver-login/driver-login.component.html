@@ -1,0 +1,35 @@
+<div class="login-container">
+    <div class="login-box">
+      <h1 class="login-title">Gamer Taxis</h1>
+      <h2 class="login-subtitle">Driver Login</h2>
+  
+      <form (ngSubmit)="login()" #loginForm="ngForm" id="form1">
+        <div class="input-group">
+            <mat-form-field appearance="fill" class="nif-field">
+              <mat-label>Select Driver</mat-label>
+              <mat-select name="selectedNif" [(ngModel)]="selectedNif" [disabled]="nifInput.trim().length > 0">
+
+                <mat-option [value]="''"></mat-option>
+                
+                <mat-option *ngFor="let driver of drivers" [value]="driver.nif">
+                  {{ driver.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          
+            <div class="or">or</div>
+          
+            <mat-form-field appearance="fill" class="nif-field">
+              <mat-label>Enter NIF</mat-label>
+              <input matInput name="nifInput" [(ngModel)]="nifInput" [disabled]="selectedNif.trim().length > 0"/>
+            </mat-form-field>
+          </div>
+          
+  
+        <span>
+          <button mat-button color="warn" routerLink="/login" style="margin-top: 1rem;">Go back</button>
+          <button mat-stroked-button type="submit">Login</button>
+        </span>
+      </form>
+    </div>
+  </div>

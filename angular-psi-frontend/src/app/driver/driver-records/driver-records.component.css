@@ -1,0 +1,106 @@
+.records li {
+  display: flex;
+  position: relative;
+  cursor: pointer;
+}
+
+.records li:hover {
+  left: .1em;
+}
+
+.records {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+}
+
+div button{
+  font-weight: bold;
+  background-color: white;
+}
+
+.records a {
+  color: #333;
+  text-decoration: none;
+  background-color: #b7c0d3;
+  margin: .5em;
+  padding: .3em 0;
+  border-radius: 7px;
+  display: block;
+  width: 100%;
+}
+
+
+.records a:hover {
+  color: #2c3a41;
+  background-color: #e6e6e6;
+}
+
+.records a:active {
+  background-color: #525252;
+  color: #fafafa;
+}
+
+.RideDate {
+  display: inline-block;
+  font-size: medium;
+  color: rgb(250, 250, 250);
+  padding: 0.8em 0.7em 0.8em 0.7em;
+  background-color: #405061;
+  line-height: 1em;
+  margin-left: .8em;
+  margin-right: .8em;
+  border-radius: 6px;
+}
+
+.ClientName {
+    display: block;
+  align-self: center;
+}
+
+
+.separar {
+  font-size: xx-large;
+}
+
+.main-content {
+  padding: 2rem;
+  background-color: #b7c0d3;
+  display: inline-block;
+}
+
+.records-form,
+.details-wrapper {
+  max-width: 400px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.details-wrapper {
+  margin-top: 2rem;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background-color: #b7c0d3; 
+}
+
+.record-btn {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  background-color: #acb5c9;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  width: 75%; 
+}
+
+.record-btn:hover{
+  background-color: #e6e6e6;
+}
+

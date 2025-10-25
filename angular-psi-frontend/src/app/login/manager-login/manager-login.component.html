@@ -1,0 +1,23 @@
+<div class="login-container">
+  <div class="login-box">
+    <h1 class="login-title">Gamer Taxis</h1>
+    <h2 class="login-subtitle">Manager Login</h2>
+
+    <form (ngSubmit)="login()" #loginForm="ngForm" id="form1">
+      <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput type="text" name="username" [(ngModel)]="username" required placeholder="Ex: admin" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" name="password" [(ngModel)]="password" required placeholder="••••••" />
+      </mat-form-field>
+
+      <span>
+        <button mat-button color="warn" routerLink="/login" style="margin-top: 1rem;">Go back</button>
+        <button mat-stroked-button type="submit">Login</button>
+      </span>
+    </form>
+  </div>
+</div>

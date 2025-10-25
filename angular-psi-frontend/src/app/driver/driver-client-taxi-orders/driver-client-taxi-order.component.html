@@ -1,0 +1,50 @@
+<div class="main-content">
+  <!-- pedidos pendentes -->
+  <ng-container *ngIf="!acceptedTaxiOrder">
+    <h2>Pending Client Orders</h2>
+    <ul class="taxiOrders-list">
+      <li *ngFor="let req of taxiOrders">
+        <div>
+          <strong>People: </strong> {{ req.numberOfPeople }}<br>
+          <strong>Client: </strong> {{ req.client.name }}<br>
+          <strong>Pickup: </strong>{{ req.locationAddress?.street }}, {{ req.locationAddress?.locality }}<br>
+          <strong>Distance to Client: </strong> {{ req.distance }} km<br>
+          <strong>Destination: </strong>{{ req.destinationAddress?.street }}, {{ req.destinationAddress?.locality }}<br>
+          <strong>Status: </strong>
+          <span [ngClass]="'status-' + req.status">{{ req.status | titlecase }}</span>
+        </div>
+        <button (click)="acceptTaxiOrder(req._id!)">Accept</button>
+      </li>
+    </ul>
+  </ng-container>
+
+  <!-- pedido aceito, aguardando resposta do cliente -->
+  <ng-container *ngIf="acceptedTaxiOrder">
+    <h2>Waiting for Confirmation</h2>
+    <ul class="taxiOrders-list">
+      <li>
+        <div>
+          <strong>People: </strong> {{ acceptedTaxiOrder.numberOfPeople }}<br>
+          <strong>Client: </strong> {{ acceptedTaxiOrder.client.name }}<br>
+          <strong>Pickup: </strong> {{ acceptedTaxiOrder.locationAddress?.street }}, {{
+          acceptedTaxiOrder.locationAddress?.locality }}<br>
+          <strong>Distance to Client: </strong> {{ acceptedTaxiOrder.distance }} km<br>
+          <strong>Ride Distance: </strong> {{ acceptedTaxiOrder.estimatedRideDistance }} km<br>
+          <strong>Estimated Ride Duration: </strong> {{ acceptedTaxiOrder.estimatedRideTime }} min<br>
+          <strong>Destination: </strong> {{ acceptedTaxiOrder.destinationAddress?.street }}, {{
+          acceptedTaxiOrder.destinationAddress?.locality }}<br>
+          <strong>Status: </strong>
+          <span [ngClass]="'status-' + acceptedTaxiOrder.status">{{ acceptedTaxiOrder.status | titlecase }}</span>
+        </div>
+        <div class="action-buttons">
+          <button *ngIf="acceptedTaxiOrder.status === 'rejected' || acceptedTaxiOrder.status === 'canceled'"
+            mat-stroked-button color="warn" (click)="backToPending()">
+            Back to Pending
+          </button>
+          <button *ngIf="acceptedTaxiOrder.status === 'confirmed'" mat-raised-button color="primary" (click)="goToRide()">
+            Start the ride
+          </button>
+        </div>
+      </li>
+    </ul>
+  </ng-container>

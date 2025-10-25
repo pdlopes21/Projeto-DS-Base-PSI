@@ -1,0 +1,48 @@
+
+
+<form >
+      <legend>Enter New Taxi Details:</legend>
+      
+      <mat-form-field appearance="fill">
+        <mat-label for="licensePlate">Enter the License Plate:</mat-label>
+        <input matInput id="licensePlate" placeholder="Ex. AA-00-AA"  />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Enter the Car Brand:</mat-label>
+        <input matInput placeholder="Ex. Ferrari" [matAutocomplete]="brandAuto"
+               [(ngModel)]="taxi.brand" name="brand">
+        <mat-autocomplete #brandAuto="matAutocomplete">
+          <mat-option *ngFor="let brand of carBrands" [value]="brand">{{ brand }}</mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Enter the Car Model:</mat-label>
+        <input matInput placeholder="Ex. F80" [matAutocomplete]="modelAuto"
+               [(ngModel)]="taxi.modelName" name="model">
+        <mat-autocomplete #modelAuto="matAutocomplete">
+          <mat-option *ngFor="let model of carModels" [value]="model">{{ model }}</mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label for="purchaseYear">Enter the Purchase Year:</mat-label>
+        <input matInput id="purchaseYear" placeholder="Ex. 2015" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Comfort Level</mat-label>
+        <mat-select [(ngModel)]="taxi.comfortLevel" name="comfortLevel" required>
+          <mat-option value="standard">Standard</mat-option>
+          <mat-option value="luxury">Luxury</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="button-container">
+      <button mat-stroked-button type="button"  id="addRow" (click)="acquisition()">
+        Process Taxi
+      </button>
+      </div> 
+    
+  </form>
