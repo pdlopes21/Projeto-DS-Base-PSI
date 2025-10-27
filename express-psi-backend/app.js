@@ -23,7 +23,7 @@ var app = express();
 // Set up mongoose connection
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
-const mongoDB = "mongodb+srv://psi09:psi09@cluster0.4ljcrkq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const mongoDB = ""; //Por motivos de segurança, apenas colocar a conexão ao mongo durante testes, tirar durante commits
 
 main().catch((err) => console.log(err));
 async function main() {
